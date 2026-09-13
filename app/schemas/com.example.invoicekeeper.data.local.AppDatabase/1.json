@@ -1,0 +1,99 @@
+{
+  "formatVersion": 1,
+  "database": {
+    "version": 1,
+    "identityHash": "8632766df8919503f47aedf6667794c3",
+    "entities": [
+      {
+        "tableName": "invoices",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`id` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `saved_at` INTEGER NOT NULL, `status` TEXT NOT NULL, `supplier` TEXT NOT NULL, `invoice_number` TEXT NOT NULL, `currency` TEXT NOT NULL, `total` REAL NOT NULL, `extract_provider` TEXT, `review_provider` TEXT, `source_file_name` TEXT, `invoice_json` TEXT NOT NULL, `findings_json` TEXT NOT NULL, `webhook_response` TEXT)",
+        "fields": [
+          {
+            "fieldPath": "id",
+            "columnName": "id",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "savedAt",
+            "columnName": "saved_at",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "status",
+            "columnName": "status",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "supplier",
+            "columnName": "supplier",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "invoiceNumber",
+            "columnName": "invoice_number",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "currency",
+            "columnName": "currency",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "total",
+            "columnName": "total",
+            "affinity": "REAL",
+            "notNull": true
+          },
+          {
+            "fieldPath": "extractProvider",
+            "columnName": "extract_provider",
+            "affinity": "TEXT"
+          },
+          {
+            "fieldPath": "reviewProvider",
+            "columnName": "review_provider",
+            "affinity": "TEXT"
+          },
+          {
+            "fieldPath": "sourceFileName",
+            "columnName": "source_file_name",
+            "affinity": "TEXT"
+          },
+          {
+            "fieldPath": "invoiceJson",
+            "columnName": "invoice_json",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "findingsJson",
+            "columnName": "findings_json",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "webhookResponse",
+            "columnName": "webhook_response",
+            "affinity": "TEXT"
+          }
+        ],
+        "primaryKey": {
+          "autoGenerate": true,
+          "columnNames": [
+            "id"
+          ]
+        }
+      }
+    ],
+    "setupQueries": [
+      "CREATE TABLE IF NOT EXISTS room_master_table (id INTEGER PRIMARY KEY,identity_hash TEXT)",
+      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, '8632766df8919503f47aedf6667794c3')"
+    ]
+  }
+}
